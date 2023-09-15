@@ -1,4 +1,4 @@
-# Projeto de Consumo de API de Filmes com Next.js
+# Consumindo API de Filmes com Next.js - React.js - Tailwind ...
 
 ![Next.js](public/layout1.png)
 
@@ -19,9 +19,9 @@ Este projeto é uma aplicação web desenvolvida com Next.js que consome uma API
 - React.
 - TypeScript
 - Tailwind CSS
-- API de Filmes: TMDb API, uma API de terceiros que fornece informações sobre filmes.
+- API de Filmes: TMDb API, uma API que fornece informações sobre filmes.
 - CSS
-  ...
+- shadcn/ui
 
 ![Next.js](public/layout2.png)
 
