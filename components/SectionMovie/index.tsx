@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 import useFetch from "@/hooks/useFetch";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { GenresContext } from "@/context/genres";
 
 export interface IResult {
@@ -22,7 +22,6 @@ export interface IResult {
   vote_average: number;
   vote_count: number;
 }
-const api_url = process.env.API_BASE;
 
 export const SectionMovie = () => {
   const { genreCtx } = useContext(GenresContext);
@@ -39,7 +38,6 @@ export const SectionMovie = () => {
         key={item.id}
         className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 flex flex-col max-w-[250px] max-h-[510px] justify-between  m-2 p-2 rounded-md bg-gray-200 hover:p-0"
       >
-        {/* {item.poster_path && ( */}
         <Image
           className="rounded-md object-cover"
           src={
@@ -51,7 +49,6 @@ export const SectionMovie = () => {
           width={250}
           height={300}
         />
-        {/* )} */}
         <div>
           <h1 className="p-1 text-base truncate">{item.title}</h1>
           <p className=" text-xs max-h-[100px] line-clamp-4">{item.overview}</p>
