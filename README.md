@@ -2,6 +2,8 @@
 
 ![Next.js](public/layout1.png)
 
+![Next.js](public/layout4.png)
+
 ## Descrição
 
 Este projeto é uma aplicação web desenvolvida com Next.js que consome uma API de filmes. A aplicação permite aos usuários explorar filmes em várias categorias, como Ação, Aventura e os filmes mais populares. Além disso, os usuários podem pesquisar qualquer filme específico usando um campo de pesquisa.
@@ -26,3 +28,11 @@ Este projeto é uma aplicação web desenvolvida com Next.js que consome uma API
 ![Next.js](public/layout2.png)
 
 ![Next.js](public/layout3.png)
+
+## Page Detail
+
+### Nesta página, você pode sortear um filme aleatório.
+
+![Next.js](public/layout4.png)
+
+![Next.js](public/layout5.png)
