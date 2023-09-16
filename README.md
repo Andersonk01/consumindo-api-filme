@@ -1,4 +1,4 @@
-veja aqui: (https://consumindo-api-filme.vercel.app/detail)
+veja aqui: (https://consumindo-api-filme.vercel.app)
 
 # Consumindo API de Filmes com Next.js - React.js - Tailwind ...
 
