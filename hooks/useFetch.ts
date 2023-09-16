@@ -1,6 +1,13 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-const api_key = process.env.APIKEY_TMDB;
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_APIKEY_TMDB}`,
+  },
+};
 
 function useFetch<T = unknown>(url: string) {
   const [data, setData] = useState<T | null>(null);
@@ -10,17 +17,11 @@ function useFetch<T = unknown>(url: string) {
   const getData = useCallback(async () => {
     setLoading(true);
 
-    const dataFetch = await fetch(url, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${api_key}`,
-      },
-    })
+    const dataFetch = await fetch(url, options)
       .then((res) => res.json())
       .catch((err) => setError(err));
 
-    setData(dataFetch.results);
+    setData(dataFetch);
     setLoading(false);
   }, [url]);
 

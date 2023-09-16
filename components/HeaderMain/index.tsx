@@ -11,15 +11,6 @@ export const HeaderMain = () => {
   const { setGenreCtx } = useContext(GenresContext);
   const [genre, setGenre] = useState("");
 
-  const handleClick = (e: KeyboardEvent) => {
-    if (e.key === "Enter") {
-      handleGenre();
-      window.scrollTo(0, 600);
-    } else return;
-  };
-
-  window.addEventListener("keydown", (e) => handleClick(e));
-
   const handleGenre = () => {
     setGenreCtx("");
     if (genre === "") {

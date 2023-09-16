@@ -5,35 +5,35 @@ import { Button } from "@/components/ui/button";
 import useFetch from "@/hooks/useFetch";
 import { useContext } from "react";
 import { GenresContext } from "@/context/genres";
+import Link from "next/link";
 
-export interface IResult {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
+interface IResult {
   id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
   poster_path: string;
-  release_date: string;
   title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
+  overview: string;
+}
+
+interface ApiResponse {
+  results: IResult[];
 }
 
 export const SectionMovie = () => {
-  const { genreCtx } = useContext(GenresContext);
+  const { genreCtx, setIdMovie } = useContext(GenresContext);
 
-  const { data, loading } = useFetch<IResult[]>(
-    `https://api.themoviedb.org/3/search/movie?query=${genreCtx}&include_adult=false&language=en-US&page=1`
+  const handleIdMovie = (id: number) => {
+    setIdMovie(id);
+  };
+
+  const { data, loading } = useFetch<ApiResponse>(
+    `${process.env.NEXT_PUBLIC_API_BASE}${genreCtx}&include_adult=false&language=en-US&page=1`
   );
+  const movies: IResult[] | undefined = data?.results;
 
   return loading ? (
     <p>loading...</p>
   ) : (
-    data?.map((item) => (
+    movies?.map((item) => (
       <div
         key={item.id}
         className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 flex flex-col max-w-[250px] max-h-[510px] justify-between  m-2 p-2 rounded-md bg-gray-200 hover:p-0"
@@ -49,12 +49,19 @@ export const SectionMovie = () => {
           width={250}
           height={300}
         />
+
         <div>
           <h1 className="p-1 text-base truncate">{item.title}</h1>
           <p className=" text-xs max-h-[100px] line-clamp-4">{item.overview}</p>
-          <Button className="w-full" variant="destructive">
-            Detalhes
-          </Button>
+          <Link href="/detail">
+            <Button
+              onClick={() => handleIdMovie(item.id)}
+              className="w-full"
+              variant="destructive"
+            >
+              Detalhes
+            </Button>
+          </Link>
         </div>
       </div>
     ))

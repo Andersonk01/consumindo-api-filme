@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { GenresContext } from "@/context/genres";
 
 export const Category = () => {
-  const { setGenreCtx, genreCtx } = useContext(GenresContext);
+  const { setGenreCtx } = useContext(GenresContext);
   const [activeButton, setActiveButton] = useState<string | null>(null);
 
   const handleAction = () => {
