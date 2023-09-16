@@ -1,3 +1,5 @@
+veja aqui: (https://consumindo-api-filme.vercel.app/detail)
+
 # Consumindo API de Filmes com Next.js - React.js - Tailwind ...
 
 ![Next.js](public/layout1.png)
